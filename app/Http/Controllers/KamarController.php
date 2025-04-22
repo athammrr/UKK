@@ -27,15 +27,23 @@ class KamarController extends Controller
             'jumlah_kamar' => 'required|integer|max:50',
             'harga' => 'required|string|max:100',
             'keterangan' => 'required|string|max:255',
+            'image' => 'required|mimes:jpeg,jpg,png,webp',
         ]);
 
         // Simpan data ke database
-        Kamar::create([
+        $kamar = Kamar::create([
             'tipe' => $request->tipe,
             'jumlah_kamar'=> $request->jumlah_kamar,
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
+            'image' => $request->image,
         ]);
+
+        if($request->hasFile('image')){
+            $request->file('image')->move('fotobuku/', $request->file('image')->getClientOriginalName());
+            $kamar->image = $request->file('image')->getClientOriginalName();
+            $kamar->save();
+        }
 
         return redirect()->route('kamar.index')->with('success', 'Kamar berhasil ditambahkan');
     }
@@ -70,7 +78,7 @@ class KamarController extends Controller
         }
 
         $request->validate([
-            'tipe'  => 'required|string|max:255|in:Superior,Deluxe', 
+            'tipe'  => 'required|string|max:255', 
             'jumlah_kamar' => 'required|integer|max:50',
             'harga' => 'required|string|max:100',
             'keterangan' => 'required|string|max:255',

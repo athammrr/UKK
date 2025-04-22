@@ -43,6 +43,7 @@
                     <option value="" disabled selected>Pilih status...</option>
                     <option value="pending" {{ $cekin->status == 'pending' ? 'selected' : '' }}>Pending</option>
                     <option value="approved" {{ $cekin->status == 'approved' ? 'selected' : '' }}>Approved</option>
+                    <option value="done" {{ $cekin->status == 'done' ? 'selected' : '' }}>Done</option>
                 </select>
             </div>
 

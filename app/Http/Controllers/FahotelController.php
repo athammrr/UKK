@@ -19,24 +19,24 @@ class FahotelController extends Controller
         return view('admin.fahotel.tambah');
     }
 
-    public function store(Request $request, $image)
+    public function store(Request $request)
     {
         $request->validate([
             'nama_fasilitas'  => 'required|string|max:255', 
             'status' => 'required|string|max:255|in:available,not available',
             'keterangan' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg|max',
         ]);
 
-        $image = new Image();
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->storageAs('images', $imageName);
+        // $image = new Image();
+        // $imageName = time().'.'.$request->image->extension();
+        // $request->image->storageAs('images', $imageName);
 
         Fahotel::create([
             'nama_fasilitas' => $request->nama_fasilitas,
             'status' => $request->status,
             'keterangan' => $request->keterangan,
-            'image' => $imageName,
+            // 'image' => $imageName,
         ]);
 
         return redirect()->route('fahotel.index')->with('success', 'Fasilitas Hotel berhasil ditambahkan');

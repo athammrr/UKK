@@ -5,22 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CheckIn;
 use App\Models\Kamar;
+use App\Models\Fahotel;
 
 class UserController extends Controller
 {
     public function index() {
-        $kamar = Kamar::all();
-        return view('home', compact('kamar'));
+        return view('home');
     }
-    
-    
 
-    public function kamar() {
-        return view('kamar');
+    public function form(){
+        $kamar = Kamar::all();
+        return view('form', compact('kamar'));
+    }
+
+    public function kamar() { 
+        $kamar = Kamar::all();
+        return view('kamar', compact('kamar'));
     }
 
     public function fasilitas(){
-        return view('fasilitas');
+        $fahotel = Fahotel::all();
+        return view('fasilitas', compact('fahotel'));
     }
 
     public function store(Request $request) {
@@ -32,7 +37,7 @@ class UserController extends Controller
             'jumlah_kamar' => 'required|integer|min:1',
             'check_in' => 'required|date|after_or_equal:today',
             'check_out' => 'required|date|after:check_in',
-            'status' => 'string|in:pending,approved',
+            'status' => 'string|in:pending,approved,done',
         ]);
 
         CheckIn::create($request->all());

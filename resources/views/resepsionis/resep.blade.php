@@ -27,6 +27,7 @@
                         <th>No. Hp</th>
                         <th>Tanggal Checkin</th>
                         <th>Tanggal Checkout</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -38,14 +39,26 @@
                                 <td>{{ $data->no_hp }}</td>
                                 <td>{{ $data->check_in }}</td>
                                 <td>{{ $data->check_out }}</td>
+                                <td>
+                                @if ($data->status == 'pending')
+                                <p class="text-warning">{{ $data->status }}</p>
+                                    @else 
+                                <p class="text-success">{{ $data->status }}</p>
+                                @endif
+                                </td>
                                 <td class="d-flex gap-5">
                                     <a href="{{ route('resepsionis.show', $data->id) }}" class="btn btn-primary btn-sm">
                                         Show
                                     </a>
-
+                                    @if ($data->status == 'done')  
+                                    <div class="card bg-success">
+                                        <a href="#"> ✅</a>  
+                                    </div>   
+                                    @else
                                     <a href="{{ route('resepsionis.edit', $data->id) }}" class="btn btn-warning btn-sm">
                                         Check In 
-                                    </a>
+                                    </a>                                  
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

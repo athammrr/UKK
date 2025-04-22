@@ -18,59 +18,29 @@
         </div>
     </div>
     <div class="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8" >
-        <div class="rounded overflow-hidden shadow-lg sticky " >    
-            <img class="w-full h-96 object-cover " src="/assets/images/3.jpg" alt="Hotel">
-        </div>
-    </div>
-    
-
-    <div class="max-w-9xl mx-auto py-10 lg:px-8 gap-4">
-        <div class="flex ">
-            <div>
-                <h1 class="text-5xl font-extrabold text-gray-400 tracking-wide">
-                    Tipe Superior
-                </h1>
+        @foreach ($kamar as $data)
+            <div class="rounded overflow-hidden shadow-lg sticky " >    
+                <img src="{{ asset('fotobuku/' . $data->image) }}" class="w-full h-96 object-cover" alt="foto">
             </div>
-        </div>
-        <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
+            <div class="flex ">
+                <div>
+                    <h1 class="text-5xl font-extrabold text-gray-400 tracking-wide">
+                        Tipe {{ $data->tipe }}
+                    </h1>
+                </div>
+            </div>
             <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
-                <p class="text-lg leading-relaxed">
-                    <ul>
-                        <li>TV 32 Inch</li>
-                        <li>Double bed</li>
-                        <li>Berukuran 5x4 m2</li>
-                    </ul>
-                </p>
+                <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
+                    <p class="text-lg leading-relaxed">
+                        <ul>
+                            <li>TV 32 Inch</li>
+                            <li>Double bed</li>
+                            <li>Berukuran 5x4 m2</li>
+                        </ul>
+                    </p>
+                </div>
             </div>
-        </div>
-     </div>
-
-     <div class="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8" >
-        <div class="rounded overflow-hidden shadow-lg sticky " >    
-            <img class="w-full h-96 object-cover" src="/assets/images/7.jpg" alt="Hotel">
-        </div>
+        @endforeach
     </div>
-    
-
-    <div class="max-w-9xl mx-auto py-10 lg:px-8 gap-4">
-        <div class="flex ">
-            <div>
-                <h1 class="text-5xl font-extrabold text-gray-400 tracking-wide">
-                    Tipe Deluxe
-                </h1>
-            </div>
-        </div>
-        <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
-            <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
-                <p class="text-lg leading-relaxed">
-                    <ul>
-                        <li>TV 32 Inch</li>
-                        <li>Double bed</li>
-                        <li>Berukuran 5x4 m2</li>
-                    </ul> 
-                </p>
-            </div>
-        </div>
-     </div>
 
 @endsection

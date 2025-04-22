@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Models\CheckIn;
 
@@ -10,7 +11,7 @@ class ResepsionisController extends Controller
     public function index()
     {
         // Ambil semua data pengguna dari database
-        $cekin = CheckIn::with('kamar')->get();
+        $cekin = CheckIn::with('kamar')->latest()->get();
 
         // Kirim data ke Blade menggunakan compact()
         return view('resepsionis.resep', compact('cekin'));
@@ -19,7 +20,7 @@ class ResepsionisController extends Controller
     public function show($id)
     {
         $cekin = CheckIn::find($id);
-
+ 
         if(!$cekin){
             return redirect()->route('resepsionis.index')->with('error', 'Data doesnt exist');
         }
@@ -42,7 +43,7 @@ class ResepsionisController extends Controller
         }
         
         $request->validate([
-            'status' => 'required|string|in:pending,approved',
+            'status' => 'required|string|in:pending,approved,done',
         ]);
 
         $cekin->update([

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/home', function () {
@@ -50,8 +50,9 @@ Route::resource('resepsionis', ResepsionisController::class);
 Route::resource('kamar', KamarController::class);
 Route::resource('fakamar', FaKamarController::class);
 Route::resource('fahotel', FaHotelController::class);
-
 Route::resource('user', UserController::class);
+
+Route::get('/form-pemesanan', [UserController::class, 'form'])->name('user.form');
 Route::get('/kmr', [UserController::class, 'kamar'])->name('user.kamar');
 Route::get('/fasilitas', [UserController::class, 'fasilitas'])->name('user.fa');
 

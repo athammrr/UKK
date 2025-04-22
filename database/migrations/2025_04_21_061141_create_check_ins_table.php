@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('jumlah_kamar');
             $table->date('check_in');
             $table->date('check_out');
-            $table->enum('status', ['pending','approved'])->default('pending');
+            $table->enum('status', ['pending','approved','done'])->default('pending');
             $table->timestamps();
 
             $table->foreignId('tipe')->constrained('kamars')->onDelete('cascade');

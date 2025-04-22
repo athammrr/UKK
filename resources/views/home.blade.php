@@ -21,87 +21,35 @@
         <div class="rounded overflow-hidden shadow-lg sticky " >    
             <img class="w-full h-96 object-cover " src="/assets/images/7.jpg" alt="Hotel">
         </div>
-    </div>
-    <form action="{{ route('user.store') }}" method="POST">
-        @csrf
-        <div class="flex gap-4 bg-gray-800 p-4 rounded-md">
-            <div class="flex-1">
-                <label class="text-white block">Tanggal Check-in:</label>
-                <input type="date" name="check_in" required class="w-full rounded p-2" />
-            </div>
-            <div class="flex-1">
-                <label class="text-white block">Tanggal Check-out:</label>
-                <input type="date" name="check_out" required class="w-full rounded p-2" />
-            </div>
-            <div class="flex-1">
-                <label class="text-white block">Jumlah Kamar:</label>
-                <input type="number" name="jumlah_kamar" required class="w-full rounded p-2" />
+        <div class="w-full flex justify-center">
+            <div class="w-full max-w-5xl rounded-md bg-gray-800 p-6 shadow-md">
+                <div class="mb-6">
+                    <h2 class="text-xl text-white font-semibold text-center mb-4">Pemesanan Hotel</h2>
+                        <div class="flex justify-center gap-6">
+                            <div class=" flex flex-col">
+                                <br>
+                                <a href="{{ route('user.form') }}" class="justify-center bg-blue-600 text-white px-6 py-2 rounded outline-transparent hover:bg-blue-700">Pesan Kamar</a>
+                            </div>
+                        </div>
+                </div>
             </div>
         </div>
-        <div class="bg-gray-100 p-6 mt-6 rounded-md">
-            <h2 class="text-center text-xl font-semibold mb-4">Form Pemesanan</h2>
-            <div class="grid grid-cols-2 gap-4">
-                <input type="text" name="nama_tamu" placeholder="Nama Tamu" class="p-2 rounded" required>
-                <input type="email" name="email" placeholder="Email" class="p-2 rounded" required>
-                <input type="text" name="no_hp" placeholder="No HP" class="p-2 rounded" required>
-                <input type="hidden" name="status" placeholder="status" class="p-2 rounded" value="pending" required>
+        <div id="tentangKami" class="max-w-7xl mx-auto py-10 gap-4">
+            <div class="flex justify-center">
+                <div>
+                    <h1 class="text-5xl font-extrabold text-gray-400 tracking-wide">
+                        Tentang Kami
+                    </h1>
+                </div>
             </div>
-            <div class="mt-4">
-                <label for="tipe" class="block mb-2">Tipe Kamar</label>
-                <select name="tipe" id="tipe" class="form-control w-full p-2 border border-gray-300 rounded" required>
-                    <option value="" disabled selected>Pilih tipe kamar...</option>
-                    @foreach ($kamar as $data)
-                        <option value="{{ $data->id }}">{{ $data->tipe }}</option>
-                    @endforeach
-                </select>
-            </div>
-            
-            <div class="mt-4 text-center">
-                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Konfirmasi Pemesanan</button>
-            </div>
-        </div>
-    </form>
-    
-    @if(session('success'))
-    <div 
-        x-data="{ show: true }" 
-        x-show="show"
-        x-init="setTimeout(() => show = false, 4000)"
-        class="fixed top-5 right-5 z-50 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg transition-opacity duration-300"
-    >
-        <div class="flex items-center justify-between">
-            <span class="mr-4">
-                ✅ {{ session('success') }}
-            </span>
-            <button @click="show = false" class="text-white font-bold">&times;</button>
-        </div>
-    </div>
-@endif
-
-    
-
-    <div id="tentangKami" class="max-w-7xl mx-auto py-10 gap-4">
-        <div class="flex justify-center">
-            <div>
-                <h1 class="text-5xl font-extrabold text-gray-400 tracking-wide">
-                    Tentang Kami
-                </h1>
-            </div>
-        </div>
-        <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl mx-auto">
             <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl mx-auto">
-                <p class="text-lg leading-relaxed">
-                    🔍 <span class="font-semibold">Perubahan & Penjelasan</span><br>
-                    <span class="text-blue-400">text-5xl</span> → Bikin lebih besar & lebih eye-catching.<br>
-                    <span class="text-blue-400">font-extrabold</span> → Lebih tegas dibanding bold.<br>
-                    <span class="text-blue-400">text-gray-600</span> → Warna sedikit lebih gelap dari text-gray-400, jadi lebih nyaman dilihat.<br>
-                    <span class="text-blue-400">tracking-wide</span> → Tambahin sedikit jarak antar huruf biar terlihat elegan.<br>
-                    <span class="text-blue-400">py-10</span> → Biar ada ruang atas-bawah supaya gak terlalu rapat.<br>
-                    🚀 Sekarang tampilannya lebih profesional dan nyaman dibaca! 😎
-                </p>
+                <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl mx-auto">
+                    <p class="text-lg leading-relaxed">
+                        <span class="hover:text-blue-300 ">Hotel Hebat</span> adalah hotel dengan sistem yang sangat <span>terstruktur</span> 
+                    </p>
+                </div>
             </div>
-        </div>
-    </div>
+         </div>
 
 
      

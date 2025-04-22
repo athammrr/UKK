@@ -23,7 +23,6 @@
                     @endforeach
                 </select>
             </div>
-            
 
             <div class="mb-3">
                 <label for="nama_fasilitas" class="form-label fw-bold">Nama Fasilitas</label>

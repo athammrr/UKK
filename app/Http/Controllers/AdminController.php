@@ -34,6 +34,39 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with('success', 'User berhasil ditambahkan');
     }
 
+    public function show($id){
+        $user= User::find($id);
+
+        if(!$user){
+            return redirect()->route('admin.index')->with('error', 'Id notfound');
+        }
+        return view('admin.akun.show', compact('user'));
+    }
+
+    public function edit($id){
+        $user = User::find($id);
+
+        if(!$user){
+            return redirect()->route('admin.index')->with('error', 'Id not found');
+        }
+        return view('admin.akun.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id){
+        $user = User::where('id', $id)->first();
+        
+        if(!$user){
+            return redirect()->route('admin.index')->with('error', 'Id not found');
+        }
+         $request->validate([
+            'name'  => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
+            'role'  => 'required|in:admin,resepsionis,user',
+        ]);
+        $user->update($request->all());
+        return redirect()->route('admin.index')->with('success', 'Account updated');
+    }
+
     public function destroy($id){
         $user = User::find($id);
 

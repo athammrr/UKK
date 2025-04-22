@@ -42,7 +42,13 @@
                 </tr>
                 <tr>
                     <th>Status</th>
-                    <td>{{ $cekin->status }}</td>
+                    <td>
+                        @if ($cekin->status == 'approved')
+                           <span class="text-success"> {{ $cekin->status }} </span>
+                           @else
+                           <span class="text-warning"> {{ $cekin->status }} </span>
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th>Tanggal Pemesanan</th>

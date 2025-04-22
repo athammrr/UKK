@@ -24,6 +24,13 @@
                     <th>Keterangan</th>
                     <td>{{ $kamar->keterangan }}</td>
                 </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>
+                        <img src="{{ asset('fotobuku/' . $kamar->image) }}" alt="foto"
+                            style="width : 50px">
+                    </td>
+                </tr>
             </table>
             <div class="p-3">
                 <a href="{{ route('kamar.index') }}" class="btn btn-primary btn-lg">Kembali</a>

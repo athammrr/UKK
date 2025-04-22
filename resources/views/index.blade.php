@@ -10,6 +10,9 @@
     <body class="font-sans antialiased bg-gray-900">
         <main>
             <div class="max-w-7xl mx-auto p-6">
+                <div class="px-4 sm:px-2">
+                    <h1 class="text-gray-100 hover:text-gray-400">Hotel Hebat</h1>
+                </div>
                 @if (Route::has('login'))
                     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                         @auth
@@ -37,34 +40,12 @@
 
             <div class="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8">
                 <div class="rounded overflow-hidden shadow-lg sticky">
-                    <img class="w-full h-96 object-cover" src="/assets/images/hotel.jpg" alt="Hotel">
+                    <img class="w-full h-96 object-cover" src="/assets/images/kolam 2.avif" alt="Hotel">
                 </div>
             </div>
 
             <!-- Form untuk check-in dan check-out -->
-            <div class="w-full flex justify-center">
-                <div class="w-full max-w-7xl rounded-md bg-gray-800 p-6 shadow-md">
-                    <div class="mb-6">
-                        <h2 class="text-xl text-white font-semibold text-center mb-4">Pemesanan Hotel</h2>
-                        <form action="{{ route('login') }}">
-                            <div class="flex justify-center gap-6">
-                                <div class="flex flex-col">
-                                    <label for="check_in" class="mb-1 text-white ">Tanggal Check-in</label>
-                                    <input type="date" id="check_in" name="check_in" class=" w-full rounded p-2 border shadow-sm" required/>
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="check_out" class="mb-1 text-white ">Tanggal Check-out</label>
-                                    <input type="date" id="check_out" name="check_out" class="w-full rounded p-2 border shadow-sm" required/>
-                                </div>
-                                <div class="flex flex-col">
-                                    <br>
-                                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Konfirmasi Pemesanan</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
             <div id="tentangKami" class="max-w-7xl mx-auto py-10 gap-4">
                 <div class="flex justify-center">
                     <div>
@@ -76,24 +57,17 @@
                 <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl mx-auto">
                     <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl mx-auto">
                         <p class="text-lg leading-relaxed">
-                            🔍 <span class="font-semibold">Perubahan & Penjelasan</span><br>
-                            <span class="text-blue-400">text-5xl</span> → Bikin lebih besar & lebih eye-catching.<br>
-                            <span class="text-blue-400">font-extrabold</span> → Lebih tegas dibanding bold.<br>
-                            <span class="text-blue-400">text-gray-600</span> → Warna sedikit lebih gelap dari text-gray-400, jadi lebih nyaman dilihat.<br>
-                            <span class="text-blue-400">tracking-wide</span> → Tambahin sedikit jarak antar huruf biar terlihat elegan.<br>
-                            <span class="text-blue-400">py-10</span> → Biar ada ruang atas-bawah supaya gak terlalu rapat.<br>
-                            🚀 Sekarang tampilannya lebih profesional dan nyaman dibaca! 😎
+                            <span class="hover:text-blue-300 ">Hotel Hebat</span> adalah hotel dengan sistem yang sangat <span>terstruktur</span>.
+                            Hotel yang hemat, cermat, mantap, dan tepat
                         </p>
                     </div>
                 </div>
              </div>
              <div class="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8" >
                 <div class="rounded overflow-hidden shadow-lg sticky " >    
-                    <img class="w-full h-96 object-cover transition-transform duration-300 hover:scale-110" src="/assets/images/35.jpg" alt="Hotel">
+                    <img class="w-full h-96 object-cover" src="/assets/images/hotell.webp" alt="Hotel">
                 </div>
             </div>
-            
-        
             <div id="kamar" class="max-w-9xl mx-auto py-10 lg:px-8 gap-4">
                 <div class="flex ">
                     <div>
@@ -105,21 +79,19 @@
                 <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
                     <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
                         <p class="text-lg leading-relaxed">
-                            🔍 <span class="font-semibold">Fasilitas :</span><br>
-                            <span class="text-blue-400">text-5xl</span> → Bikin lebih besar & lebih eye-catching.<br>
-                            <span class="text-blue-400">font-extrabold</span> → Lebih tegas dibanding bold.<br>
-                            <span class="text-blue-400">text-gray-600</span> → Warna sedikit lebih gelap dari text-gray-400, jadi lebih nyaman dilihat.<br>
-                            <span class="text-blue-400">tracking-wide</span> → Tambahin sedikit jarak antar huruf biar terlihat elegan.<br>
-                            <span class="text-blue-400">py-10</span> → Biar ada ruang atas-bawah supaya gak terlalu rapat.<br>
-                            🚀 Sekarang tampilannya lebih profesional dan nyaman dibaca! 😎
+                            <ul>
+                                <li>TV 32 Inch</li>
+                                <li>Double bed</li>
+                                <li>Berukuran 5x4 m2</li>
+                            </ul> 
                         </p>
                     </div>
                 </div>
              </div>
         
-             <div class="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8" >
+             <div class="max-w-9xl max-auto py-6 sm:px-6 lg:px-8" >
                 <div class="rounded overflow-hidden shadow-lg sticky " >    
-                    <img class="w-full h-96 object-cover transition-transform duration-300 hover:scale-110" src="/assets/images/7.jpg" alt="Hotel">
+                    <img class="w-full h-96 object-cover " src="/assets/images/hotelll.png" alt="Hotel">
                 </div>
             </div>
             
@@ -135,13 +107,11 @@
                 <div id="fasilitas" class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
                     <div class="rounded-lg bg-gray-800 text-white p-6 shadow-lg max-w-2xl ">
                         <p class="text-lg leading-relaxed">
-                            🔍 <span class="font-semibold">Fasilitas :</span><br>
-                            <span class="text-blue-400">text-5xl</span> → Bikin lebih besar & lebih eye-catching.<br>
-                            <span class="text-blue-400">font-extrabold</span> → Lebih tegas dibanding bold.<br>
-                            <span class="text-blue-400">text-gray-600</span> → Warna sedikit lebih gelap dari text-gray-400, jadi lebih nyaman dilihat.<br>
-                            <span class="text-blue-400">tracking-wide</span> → Tambahin sedikit jarak antar huruf biar terlihat elegan.<br>
-                            <span class="text-blue-400">py-10</span> → Biar ada ruang atas-bawah supaya gak terlalu rapat.<br>
-                            🚀 Sekarang tampilannya lebih profesional dan nyaman dibaca! 😎
+                            <ul>
+                                <li>TV 42 Inch</li>
+                                <li>Super bed</li>
+                                <li>Berukuran 6x5 m2</li>
+                            </ul> 
                         </p>
                     </div>
                 </div>
@@ -156,22 +126,22 @@
                 </div>
                 <div class="grid grid-cols-3 gap-6 p-4 rounded-lg ">
                     <div class="relative overflow-hidden rounded-lg bg-gray-800">
-                        <img src="assets/images/1.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/hotel.webp" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg bg-gray-800">
-                        <img src="assets/images/2.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/hotell.webp" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg bg-gray-800">
-                        <img src="assets/images/3.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/kolam.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg bg-gray-800">
-                        <img src="assets/images/4.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/kolam 2.avif" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg bg-gray-800">
-                        <img src="assets/images/5.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/ruang.webp" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg bg-gray-800">
-                        <img src="assets/images/7.jpg" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/home.webp" alt="MacBook" class="w-full h-auto object-cover transition-transform duration-300 hover:scale-110">
                     </div>
                 </div>
             </div>

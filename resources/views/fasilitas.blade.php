@@ -33,24 +33,26 @@
             </div>
         </div>
         <div class="grid grid-cols-3 gap-6 p-4 rounded-lg ">
-            <div class="relative rounded-lg bg-gray-800">
-                <img src="assets/images/1.jpg" alt="MacBook" class="w-full h-auto object-cover">
+            @if($fahotel->isNotEmpty()) 
+            @foreach ($fahotel as $data)
+            <div class="relative rounded-lg p-4 bg-gray-700">
+                <div class="rounded-sm bg-gray-600">
+                    <h1 class="text-white">{{ $data->nama_fasilitas }}</h1>
+                </div>
+                <div class="rounded-sm bg-gray-600">
+                    @if ($data->status == 'available')
+                        <h1 class="text-white">Status : <span class="text-green-400">{{ $data->status }}</span></h1>
+                        @else
+                        <h1 class="text-white">Status : <span class="text-red-500">{{ $data->status }}</span></h1>
+
+                    @endif
+                </div>
+                <div class="rounded- bg-gray-600">
+                    <h1 class="text-white">Keterangan : {{ $data->keterangan }}</h1>
+                </div>
             </div>
-            <div class="rounded-lg bg-gray-800">
-                <img src="assets/images/2.jpg" alt="MacBook" class="w-full h-auto object-cover">
-            </div>
-            <div class="rounded-lg bg-gray-800">
-                <img src="assets/images/3.jpg" alt="MacBook" class="w-full h-auto object-cover">
-            </div>
-            <div class="rounded-lg bg-gray-800">
-                <img src="assets/images/4.jpg" alt="MacBook" class="w-full h-auto object-cover">
-            </div>
-            <div class="rounded-lg bg-gray-800">
-                <img src="assets/images/5.jpg" alt="MacBook" class="w-full h-auto object-cover">
-            </div>
-            <div class="rounded-lg bg-gray-800">
-                <img src="assets/images/7.jpg" alt="MacBook" class="w-full h-auto object-cover">
-            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 

@@ -26,21 +26,23 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->role }}</td>
-                                    <td class="d-flex gap-5">
-                                        <a href="#" class="btn btn-primary btn-sm">
+                                    <td class="d-flex">
+                                        <a href="{{ route('admin.show', $data->id) }}" class="btn btn-primary  btn-sm">
                                             Show
                                         </a>
-
-                                        <a href="#" class="btn btn-warning btn-sm">
-                                            Edit
-                                        </a>
-                                        <form action="{{ route('admin.destroy', $data->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    Delete
-                                                </button>
+                                        @if ($data->role != 'admin' )
+                                            <a href="#" class="btn btn-warning btn-sm">
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('admin.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                    </button>
                                             </form>
+                                        @endif
+                                        
                                     </td>
                                 </tr>
                             @endforeach
@@ -52,9 +54,9 @@
                     </tbody>
                 </table>
                 </div>
-                <div class="p-3 ">
+                {{-- <div class="p-3 ">
                     <a class="btn btn-success btn-lg" href="{{ route('admin.create') }}">+</a>
-                </div>
+                </div> --}}
             </div>
 </div>
 @endsection
